@@ -1,0 +1,36 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "debug": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuongkyuubi/node-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "nodejs",
+    "blog",
+    "nodejs"
+  ],
+  "author": "khuongle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuongkyuubi/node-blog/issues"
+  },
+  "homepage": "https://github.com/khuongkyuubi/node-blog#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
