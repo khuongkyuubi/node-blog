@@ -7,28 +7,34 @@ const app = express(); // trả lại đói tượng đại diện cho 1 đối 
 const handlebars = require("express-handlebars");
 const port = 3000;
 
+const route = require("./routes") // tự trỏ đến file index trong thư mục routes
+
 
 app.use(express.static(path.join(__dirname,"public")));
 
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 
-// template engines
+app.use(express.urlencoded({
+    extended: true
+})); // middleware xử lý request từ form
+app.use(express.json()); // middleware xử lý request từ fetch, html...
+
+// setup template engines // tự render từ các file handlebars
 app.engine("hbs", handlebars.engine({
-    extname: ".hbs"
-
+    extname: ".hbs" // config file .handlebars thành .hbs
 }));
+// setup views để app render từ các file trong views
 app.set("view engine", "hbs");
-app.set('views', path.join(__dirname, "resources", "views")); // set đường dẫn views
+app.set('views', path.join(__dirname, "resources", "views")); // set đường dẫn cho views
 // get là định nghĩa route (tuyến đường);
 
-app.get('/trang-chu', (req, res)=> {
-    res.render("home");
 
-});
-app.get('/news', (req, res)=> {
-    res.render("news");
+// Route init
+route(app);
 
-});
+
+
+
 
 app.listen(port,() => console.log('Example') )
 
