@@ -7,10 +7,12 @@
     "test": "test"
   },
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "debug": "nodemon --inspect src/index.js",
-    "watch" : "node-sass --watch src/resources/scss --output src/public/css/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "node-sass --watch src/resources/scss --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -28,13 +30,19 @@
     "url": "https://github.com/khuongkyuubi/node-blog/issues"
   },
   "homepage": "https://github.com/khuongkyuubi/node-blog#readme",
+  "lint-staged": {
+    "./src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "dependencies": {
     "express": "^4.18.1",
     "express-handlebars": "^6.0.5"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
     "morgan": "^1.10.0",
     "node-sass": "^7.0.1",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "prettier": "2.6.2"
   }
 }
